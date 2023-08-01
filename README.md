@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# Image Gallery Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based Image Gallery Viewer that integrates with OpenSeadragon to provide deep zoom capabilities for high-resolution images. The project includes a set of components to handle image viewing, zooming, navigation between multiple images, and full-screen capabilities.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ImageGallery Component
 
-### `npm start`
+The `ImageGallery` component serves as the core of the image gallery viewer.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Image Navigation:** Navigate through multiple images.
+- **Zooming Capabilities:** Zoom in and out of images for detailed viewing.
+- **Full-Screen Mode:** Full-screen viewing capabilities.
+- **Thumbnail Previews:** Thumbnail view to easily switch between images.
 
-### `npm test`
+### Props
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Prop          | Type      | Default   | Description                                             |
+| ------------- | --------- | --------- | ------------------------------------------------------- |
+| `iiifUrls`    | `array`   | Required  | An array of URLs pointing to the IIIF-compliant images. |
+| `width`       | `string`  | `"800px"` | The width of the viewer.                                |
+| `height`      | `string`  | `"500px"` | The height of the viewer.                               |
+| `showToolbar` | `boolean` | `true`    | Toggle the display of the toolbar.                      |
 
-### `npm run build`
+### Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+<ImageGallery
+  iiifUrls={imageUrls}
+  width="800px"
+  height="600px"
+  showToolbar={true}
+/>
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation Guide for the App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the Repository:** First, you'll need to clone the project repository to your local machine.
 
-### `npm run eject`
+   ```bash
+   git clone git@github.com:fahmyfarahat/image-gallery-viewer.git
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. **Navigate to the Project Directory:**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   cd image-gallery-viewer
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Install Yarn (if not installed):** If you don't have Yarn installed, you can install it by running:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   npm install --global yarn
+   ```
 
-## Learn More
+4. **Install Dependencies:** Inside the project directory, install all the required dependencies by running:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   yarn install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Start the Development Server:** You can now start the development server by running:
+
+   ```bash
+   yarn start
+   ```
+
+   This will start the server, and the app should be accessible at `http://localhost:3000` or another port if you've configured it differently.
+
+---
+
+### What are IIIF Images?
+
+IIIF Images refer to images that are hosted and served using the IIIF standards. These images are accessible through a set of APIs that enable users to perform various operations on them. The IIIF standards allow for:
+
+- **Deep Zooming:** Users can zoom into high-resolution images to see fine details.
+- **Image Manipulation:** Functions such as rotation, mirroring, and color adjustments.
+- **Interoperability:** Different IIIF-compliant viewers can access and interact with IIIF images, allowing institutions to share and collaborate on image resources.
+- **Annotations:** Ability to add commentary or other forms of linked information directly on the image.
+
+### How to Access IIIF Images from The Getty
+
+The Getty is among the cultural institutions that have adopted the IIIF standards for their digital collections. Here's how you can access IIIF images from The Getty:
+
+1. **Visit The Getty's Website:** Navigate to [The Getty's digital collection](https://www.getty.edu/).
+
+2. **Search for Images:** Utilize their search functionality to find the images you're interested in.
+
+3. **Access IIIF Manifests:** Many digital objects on The Getty's site will have IIIF icons or links that lead to the IIIF manifests. A manifest is a JSON document that describes the structure and layout of a complex image or object.
+
+4. **Use in IIIF-Compatible Viewers:** The manifests can be used in any IIIF-compatible viewer, such as OpenSeadragon, to view and manipulate the images.
+
+5. **API Access:** Developers can access the IIIF images programmatically via The Getty's APIs, allowing for integration into custom web applications or other digital projects.

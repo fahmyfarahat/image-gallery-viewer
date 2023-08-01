@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import MultiViewer from "./components/ImageGallery";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="description">
+        <h2>Museum Collection</h2>
+      </div>
+
+      <MultiViewer
+        height="600px"
+        width="100%"
+        showToolbar
+        iiifUrls={[
+          "https://data.getty.edu/museum/api/iiif/5657/info.json",
+          "https://data.getty.edu/museum/api/iiif/22322/info.json",
+          "https://data.getty.edu/museum/api/iiif/43/info.json",
+          "https://data.getty.edu/museum/api/iiif/403294/info.json",
+        ]}
+      />
+    </>
   );
 }
 
